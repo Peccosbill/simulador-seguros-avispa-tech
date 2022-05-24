@@ -1,12 +1,15 @@
-import { Calculator, UserDetail, UsersList } from "./components"
+import { Calculator, UserDetail, UsersList, Nav } from "./components";
 
 function App() {
   return (
-  <div className="grid grid-cols-3">
-    <UsersList />
-    <UserDetail />
-    <Calculator />
-  </div>
+    <div>
+      <Nav />
+      <div className="grid sm:grid-cols-3 grid-cols-1">
+        <UsersList />
+        <UserDetail />
+        <Calculator />
+      </div>
+    </div>
   );
 }
 
