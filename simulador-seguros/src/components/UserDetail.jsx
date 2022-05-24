@@ -22,7 +22,8 @@ const UserDetail = () => {
             </p>
           </div>
           <div>
-            {detailUser.products?.map((product, i) => (
+            <h4 className="bg-yellow-200 py-2 px-4 font-semibold">Contracted insurance</h4>
+            {detailUser.products.length > 0 ? detailUser.products?.map((product, i) => (
               <button
                 key={i}
                 onClick={() => dispatch(getProductsPerUser(detailUser.id, i))}
@@ -31,7 +32,7 @@ const UserDetail = () => {
                 <h5>{product.sku}</h5>
                 <p className="font-bold">{product.name}</p>
               </button>
-            ))}
+            )) : <p className="p-4">You haven't contracted insurance yet</p>}
           </div>
         </div>
       )}

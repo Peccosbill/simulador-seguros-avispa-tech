@@ -1,16 +1,11 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { getDetailUser } from "../redux/actions";
 
 const User = ({ user }) => {
   const dispatch = useDispatch();
-  const detailUser = useSelector((state) => state.detailUser);
-  const [checked, setChecked] = useState(false);
 
   const getData = () => {
     dispatch(getDetailUser(user.id));
-    console.log(detailUser);
-    setChecked(!checked);
   };
 
   return (
