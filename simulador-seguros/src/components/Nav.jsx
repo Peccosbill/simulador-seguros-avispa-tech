@@ -8,7 +8,7 @@ const Nav = () => {
         <img className="w-10" src={avispa} alt="Avispa" />
         <h1 className="text-2xl">AvispaTech Insurance</h1>
       </div>
-      <a className="p-2 rounded-md hover:bg-blue-600 hover:text-white ease-in duration-100" href="https://www.avispa.tech" target="_blank">Sobre nosotros</a>
+      <a className="p-2 rounded-md hover:bg-blue-600 hover:text-white ease-in duration-100" href="https://www.avispa.tech" target="_blank">About us</a>
     </nav>
   );
 };
