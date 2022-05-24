@@ -5,6 +5,7 @@ import { getProductsPerUser } from "../redux/actions";
 
 const UserDetail = () => {
   const detailUser = useSelector((state) => state.detailUser);
+  const productsPerUser = useSelector((state) => state.productsPerUser);
   const dispatch = useDispatch();
 
   return (
@@ -22,17 +23,27 @@ const UserDetail = () => {
             </p>
           </div>
           <div>
-            <h4 className="bg-yellow-200 py-2 px-4 font-semibold">Contracted insurance</h4>
-            {detailUser.products.length > 0 ? detailUser.products?.map((product, i) => (
-              <button
-                key={i}
-                onClick={() => dispatch(getProductsPerUser(detailUser.id, i))}
-                className="flex flex-col w-full p-4 border-gray-200 border-y-[1px] border-solid hover:bg-blue-400 hover:text-white ease-in duration-100"
-              >
-                <h5>{product.sku}</h5>
-                <p className="font-bold">{product.name}</p>
-              </button>
-            )) : <p className="p-4">You haven't contracted insurance yet</p>}
+            <h4 className="bg-yellow-200 py-2 px-4 font-semibold">
+              Contracted insurance
+            </h4>
+            {detailUser.products.length > 0 ? (
+              detailUser.products?.map((product, i) => (
+                <button
+                  key={i}
+                  onClick={() => dispatch(getProductsPerUser(detailUser.id, i))}
+                  className={
+                    product.sku === productsPerUser.sku
+                      ? "flex flex-col w-full p-4 border-gray-200 border-y-[1px] border-solid bg-blue-400 text-white"
+                      : "flex flex-col w-full p-4 hover:bg-blue-400 hover:text-white ease-in duration-100"
+                  }
+                >
+                  <h5>{product.sku}</h5>
+                  <p className="font-bold">{product.name}</p>
+                </button>
+              ))
+            ) : (
+              <p className="p-4">You haven't contracted insurance yet</p>
+            )}
           </div>
         </div>
       )}

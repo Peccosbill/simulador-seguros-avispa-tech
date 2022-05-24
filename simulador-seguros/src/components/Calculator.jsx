@@ -5,7 +5,6 @@ import "animate.css";
 const Calculator = () => {
   const product = useSelector((state) => state.productsPerUser);
   const [years, setYears] = useState(0);
-  console.log(product);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -77,5 +76,5 @@ const Calculator = () => {
     </div>
   );
 };
-// (1 * 12 * monthly) + signup_fee
+
 export default Calculator;
