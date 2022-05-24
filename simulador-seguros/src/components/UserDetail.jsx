@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import 'animate.css';
+import "animate.css";
 import { getProductsPerUser } from "../redux/actions";
 
 const UserDetail = () => {
@@ -26,7 +26,7 @@ const UserDetail = () => {
               <button
                 key={i}
                 onClick={() => dispatch(getProductsPerUser(detailUser.id, i))}
-                className="flex flex-col w-full p-4 border-gray-200 border-y-[1px] border-solid"
+                className="flex flex-col w-full p-4 border-gray-200 border-y-[1px] border-solid hover:bg-blue-400 hover:text-white ease-in duration-100"
               >
                 <h5>{product.sku}</h5>
                 <p className="font-bold">{product.name}</p>

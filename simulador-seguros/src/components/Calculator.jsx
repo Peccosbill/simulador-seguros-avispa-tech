@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import "animate.css"
+import "animate.css";
 
 const Calculator = () => {
   const product = useSelector((state) => state.productsPerUser);
@@ -22,18 +22,18 @@ const Calculator = () => {
           </div>
 
           <div>
-            <div className="flex justify-end m-4">
+            <div className="flex justify-end flex-col lg:flex-row m-4">
               <p className="mr-16">signup_fee</p>
-              <div className="flex w-60 bg-gray-200 border-[1px] border-solid border-gray-300 rounded-md">
+              <div className="flex lg:w-60 bg-gray-200 border-[1px] border-solid border-gray-300 rounded-md">
                 <p className="py-1 px-2 border-r-[1px] border-solid border-gray-300">
                   UF
                 </p>
                 <span className="py-1 px-2">{product.costs?.signup_fee}</span>
               </div>
             </div>
-            <div className="flex justify-end m-4">
+            <div className="flex justify-end flex-col lg:flex-row m-4">
               <p className="mr-16">monthly</p>
-              <div className="flex w-60 bg-gray-200 border-[1px] border-solid border-gray-300 rounded-md">
+              <div className="flex lg:w-60 bg-gray-200 border-[1px] border-solid border-gray-300 rounded-md">
                 <p className="py-1 px-2 border-r-[1px] border-solid border-gray-300">
                   UF
                 </p>
@@ -43,25 +43,32 @@ const Calculator = () => {
           </div>
 
           <div className="mt-12">
-            <div className="m-4 flex justify-between">
+            <div className="m-4 flex justify-between flex-col lg:flex-row">
               <p>Years to simulate</p>
               <input
-                className="w-60 py-1 px-2 border-[1px] border-solid border-gray-300 rounded-md focus:outline-none resize-none"
+                className="lg:w-60 py-1 px-2 border-[1px] border-solid border-gray-300 rounded-md focus:outline-none resize-none"
                 onChange={(e) => handleChange(e)}
                 type="number"
               ></input>
             </div>
             {years < 0 && (
-              <p className="text-red-600 m-4 text-right">Only positive numbers</p>
+              <p className="text-red-600 m-4 text-right">
+                Only positive numbers
+              </p>
             )}
-            <div className="m-4 flex justify-between">
-              <h4>Total cost</h4>
-              <p className="w-60 h-8 py-1 px-2 border-[1px] border-solid border-gray-300 rounded-md">
+            <div className="p-4 flex justify-between flex-col lg:flex-row bg-yellow-200 rounded-b-md">
+              <h4 className="font-semibold">Total cost</h4>
+              <p className="lg:w-60 h-8 py-1 px-2 border-[1px] border-solid border-gray-300 bg-white rounded-md">
                 {years > 0 &&
-                  (
-                    years * 12 * product?.costs.monthly +
-                    product.costs?.signup_fee
-                  ).toFixed(2)}
+                  new Intl.NumberFormat("en-IN", {
+                    style: "currency",
+                    currency: "USD",
+                  }).format(
+                    (
+                      years * 12 * product?.costs.monthly +
+                      product.costs?.signup_fee
+                    ).toFixed(2)
+                  )}
               </p>
             </div>
           </div>
