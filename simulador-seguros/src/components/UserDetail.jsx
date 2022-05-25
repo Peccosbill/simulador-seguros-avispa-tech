@@ -33,8 +33,8 @@ const UserDetail = () => {
                   onClick={() => dispatch(getProductsPerUser(detailUser.id, i))}
                   className={
                     product.sku === productsPerUser.sku
-                      ? "flex flex-col w-full p-4 border-gray-200 border-y-[1px] border-solid bg-blue-400 text-white"
-                      : "flex flex-col w-full p-4 hover:bg-blue-400 hover:text-white ease-in duration-100"
+                      ? "flex flex-col w-full p-4 bg-blue-400 text-white"
+                      : "flex flex-col w-full p-4 border-gray-200 border-y-[1px] border-solid hover:bg-blue-400 hover:text-white ease-in duration-100"
                   }
                 >
                   <h5>{product.sku}</h5>

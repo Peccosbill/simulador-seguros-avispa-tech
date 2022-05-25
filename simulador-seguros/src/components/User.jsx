@@ -13,7 +13,7 @@ const User = ({ user }) => {
     <button
       onClick={() => getData()}
       className={user.id === detailUser.id ? "w-full p-4 flex flex-col bg-blue-400 text-white" :
-        "w-full p-4 borderb-b-gray-200 border-[1px] border-solid flex flex-col hover:bg-blue-400 hover:text-white ease-in duration-100"
+        "w-full p-4 border-b-gray-200 border-[1px] border-solid flex flex-col hover:bg-blue-400 hover:text-white ease-in duration-100"
       }
     >
       <h3 className="text-2xl font-semibold mb-2">{user.name}</h3>
